@@ -35,6 +35,8 @@ on:
     # `github.event.action` a closed set of known-safe values.
     types: [daily, intraday, weekly]
   workflow_dispatch:
+  schedule:
+    - cron: '0 22 * * *'
     inputs:
       mode:
         description: "Run mode"
