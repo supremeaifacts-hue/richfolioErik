@@ -35,8 +35,6 @@ on:
     # `github.event.action` a closed set of known-safe values.
     types: [daily, intraday, weekly]
   workflow_dispatch:
-  schedule:
-    - cron: '0 22 * * *'
     inputs:
       mode:
         description: "Run mode"
@@ -57,7 +55,8 @@ on:
         required: false
         default: false
         type: boolean
-
+  schedule:
+    - cron: '0 22 * * *'
 # Workflow-level env applies to every step in every job. The user-facing
 # Actions Variable is `TIME_ZONE` (matches the rest of richfolio's env
 # naming style); we map it to POSIX `TZ` here, which Node.js natively
